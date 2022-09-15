@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono
 interface PatientRepository : ReactiveMongoRepository<Patient, String>
 
 {
+
 @Query("{'userName':?0}")
 fun findByName(patientRequest: PatientRequest): Mono<Patient>
 

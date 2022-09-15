@@ -30,8 +30,11 @@ class PatientService(
     }
 
     fun deleteById(id: String): Mono<Void>{
-        return patientRepository.deleteById(id)
+        return findById(id)
+            .flatMap(patientRepository::delete)
     }
+
+
 
 //    fun deleteAll(id: String): Mono<Void>{
 //        return patientRepository.deleteAll()

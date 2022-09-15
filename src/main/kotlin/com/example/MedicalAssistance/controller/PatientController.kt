@@ -40,6 +40,7 @@ class PatientController (
         return patientService.updatePatientById(id,patient)
     }
 
+
 //    @PutMapping("/updatePatient")
 //    fun update(@RequestBody patient: Patient): Mono<Patient> {
 //        return patientService.updatePatient(patient)
@@ -55,6 +56,8 @@ class PatientController (
     fun deletePatient(@PathVariable id: String): Mono<Void> {
         return patientService.deleteById(id)
     }
+
+
 }
 
 

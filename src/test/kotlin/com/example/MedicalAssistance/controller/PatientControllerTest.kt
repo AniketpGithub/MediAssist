@@ -154,4 +154,40 @@ class PatientControllerTest{
         }
     }
 
+
+    @Test
+
+    fun `should able to delete patient`(){
+
+        val expectedResponse = mapOf("patientId" to "2",
+            "patientFirstName" to "John",
+            "patientLastName" to "Cena",
+            "userName" to "jcena",
+            "mobileNumber" to "7866557788",
+            "email" to "jc@gmail.com",
+            "gender" to "male",
+            "dob" to "12/09/2000",
+            "password" to "jc@1234",
+            "address" to "NYC")
+
+        val patient = Patient(patientId="2", patientFirstName="John", patientLastName="Cena", userName="jcena",
+            mobileNumber="7866557788", email="jc@gmail.com", gender="male", dob="12/09/2000",
+            password="jc@1234", address="NYC")
+
+
+        every {
+            patientService.deleteById("2")
+        }returns Mono.empty()
+
+
+        val response= webTestClient.delete()
+            .uri("/patients/2")
+            .exchange()// invoking the end point
+            .expectStatus().is2xxSuccessful
+
+        verify(exactly = 1){
+            patientService.deleteById("2")
+        }
+    }
+
 }
