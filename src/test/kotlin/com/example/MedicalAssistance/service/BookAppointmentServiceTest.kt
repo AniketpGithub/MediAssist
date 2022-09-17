@@ -1,6 +1,7 @@
 package com.example.MedicalAssistance.service
 
 import com.example.MedicalAssistance.model.BookAppointment
+import com.example.MedicalAssistance.model.Patient
 import com.example.MedicalAssistance.repository.BookAppointmentRepository
 import io.kotlintest.shouldBe
 import io.mockk.every
@@ -40,5 +41,19 @@ class BookAppointmentServiceTest{
 
         firstAppointment shouldBe apoointment1
         secondAppointment shouldBe apoointment2
+    }
+
+
+    @Test
+    fun `patient should Book Appointment `(){
+
+        val bookApp = BookAppointment("1","Raj","Prasad","Ratnagiri","raj@gmail.com","9985437655","17/09/2022","Chest pain")
+        every{
+            bookAppointmentRepository.save(bookApp)
+        }returns Mono.just(bookApp)
+        val addAppointment = bookAppointmentService.addAppointment(bookApp).block()
+
+        addAppointment shouldBe bookApp
+
     }
 }

@@ -85,7 +85,7 @@ class PatientServiceTest{
         every{
             patientRepository.deleteById("1")
         }returns Mono.empty()
-        
+
     }
 
 }
