@@ -76,4 +76,16 @@ class PatientServiceTest{
 
     }
 
+    @Test
+    fun `should delete patient by Id `(){
+
+        val patient = Patient(patientId="1", patientFirstName="Aniket", patientLastName="Pashte", userName="Akp",
+            mobileNumber="8329498688", email="akp@gmail.com", gender="male", dob="08/06/2021",
+            password="Akp@00", address="Mumbai")
+        every{
+            patientRepository.deleteById("1")
+        }returns Mono.empty()
+        
+    }
+
 }
