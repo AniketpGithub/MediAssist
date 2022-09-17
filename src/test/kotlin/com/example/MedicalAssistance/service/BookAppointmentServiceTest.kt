@@ -47,13 +47,29 @@ class BookAppointmentServiceTest{
     @Test
     fun `patient should Book Appointment `(){
 
-        val bookApp = BookAppointment("1","Raj","Prasad","Ratnagiri","raj@gmail.com","9985437655","17/09/2022","Chest pain")
+        val bookApp = BookAppointment("1","Raj","Prasad","Ratnagiri",
+            "raj@gmail.com","9985437655","17/09/2022","Chest pain")
         every{
             bookAppointmentRepository.save(bookApp)
         }returns Mono.just(bookApp)
         val addAppointment = bookAppointmentService.addAppointment(bookApp).block()
 
         addAppointment shouldBe bookApp
+
+    }
+
+
+    @Test
+    fun `patient should update booking`(){
+
+        val updateBooking = BookAppointment("1","Raj","Prasad","Ratnagiri",
+            "raj@gmail.com","9985437655","17/09/2022","Chest pain")
+        every{
+            bookAppointmentRepository.save(updateBooking)
+        }returns Mono.just(updateBooking)
+        val updatePatient = bookAppointmentService.updateAppointment("1",updateBooking).block()
+
+        updatePatient shouldBe updateBooking
 
     }
 }
