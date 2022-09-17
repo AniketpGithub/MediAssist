@@ -1,6 +1,6 @@
 package com.example.MedicalAssistance.controller
 
-import com.example.MedicalAssistance.model.BookAppointment
+
 import com.example.MedicalAssistance.model.Patient
 import com.example.MedicalAssistance.repository.PatientRepository
 import com.example.MedicalAssistance.service.PatientService
@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono
 
 
 @RestController
-//@RequestMapping("v1")
+
 @CrossOrigin(origins = ["http://localhost:3000"], maxAge=3600, allowCredentials = "true")
 class PatientController (
 
@@ -41,10 +41,7 @@ class PatientController (
     }
 
 
-//    @PutMapping("/updatePatient")
-//    fun update(@RequestBody patient: Patient): Mono<Patient> {
-//        return patientService.updatePatient(patient)
-//    }
+
 
     @DeleteMapping
     fun delete(): Mono<Void> {

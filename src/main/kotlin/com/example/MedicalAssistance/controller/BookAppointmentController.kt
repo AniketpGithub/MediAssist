@@ -3,9 +3,7 @@ package com.example.MedicalAssistance.controller
 import com.example.MedicalAssistance.exception.RecordAlreadyPresentException
 import com.example.MedicalAssistance.exception.RecordNotFoundException
 import com.example.MedicalAssistance.model.BookAppointment
-import com.example.MedicalAssistance.model.Patient
 
-import com.example.MedicalAssistance.repository.BookAppointmentRepository
 import com.example.MedicalAssistance.service.BookAppointmentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*

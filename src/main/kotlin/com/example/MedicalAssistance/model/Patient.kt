@@ -1,8 +1,7 @@
 package com.example.MedicalAssistance.model
 
 import org.springframework.data.annotation.Id
-
-data class Patient (
+ data class Patient (
 
    @Id
    val patientId: String?,

@@ -26,7 +26,7 @@ class BookAppointmentService(
     }
 
 //    fun addAppointment(newBooking: BookAppointment?): Mono<BookAppointment>? {
-//        val findBookingById: Optional<BookAppointment?> = bookAppointmentRepository.findById(newBooking!!.patientId!!)
+//        val findBookingById: Optional<BookAppointment?> = bookAppointmentRepository.findById(newBooking.patientId)
 //        return try {
 //            if (!findBookingById.isPresent()) {
 //                bookAppointmentRepository!!.save(newBooking)
@@ -40,17 +40,7 @@ class BookAppointmentService(
 //        }
 //    }
 
-//    val findBookingById: Optional<Booking?> = bookingDao!!.findById(newBooking!!.bookingId!!)
-//    return try {
-//        if (!findBookingById.isPresent()) {
-//            bookingDao!!.save(newBooking)
-//            ResponseEntity(newBooking, HttpStatus.OK)
-//        } else throw RecordAlreadyPresentException(
-//            "Booking with Booking Id: " + newBooking.bookingId + " already exists!!"
-//        )
-//    } catch (e: RecordAlreadyPresentException) {
-//        ResponseEntity(HttpStatus.NOT_FOUND)
-//    }
+
 
 
     fun updateAppointment( id:String, bookAppointment: BookAppointment):Mono<BookAppointment>{

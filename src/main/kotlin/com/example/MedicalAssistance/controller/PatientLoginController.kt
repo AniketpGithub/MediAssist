@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSession
 class PatientLoginController(
 
     @Autowired
-    val patientRepository: PatientRepository,
-    val patientService: PatientService,
+
     val patientLoginService: PatientLoginService
 ) {
 

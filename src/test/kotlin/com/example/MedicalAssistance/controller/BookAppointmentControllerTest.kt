@@ -1,7 +1,6 @@
 package com.example.MedicalAssistance.controller
 
 import com.example.MedicalAssistance.model.BookAppointment
-import com.example.MedicalAssistance.model.Patient
 
 import com.example.MedicalAssistance.service.BookAppointmentService
 

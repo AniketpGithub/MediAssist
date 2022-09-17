@@ -27,6 +27,10 @@ class PatientServiceTest{
          every{
              findById("2")
          }returns Mono.just(patient2)
+
+
+
+
      }
 
     private  val patientService = PatientService(patientRepository)
@@ -39,5 +43,20 @@ class PatientServiceTest{
 
         firstPatient shouldBe patient1
         secondPatient shouldBe patient2
+    }
+
+    @Test
+    fun `should create Appointment `(){
+
+        val patient = Patient(patientId="1", patientFirstName="Aniket", patientLastName="Pashte", userName="Akp",
+            mobileNumber="8329498688", email="akp@gmail.com", gender="male", dob="08/06/2021",
+            password="Akp@00", address="Mumbai")
+        every{
+            patientRepository.save(patient)
+        }returns Mono.just(patient)
+        val addPatient = patientService.addPatient(patient).block()
+
+        addPatient shouldBe patient
+
     }
 }
