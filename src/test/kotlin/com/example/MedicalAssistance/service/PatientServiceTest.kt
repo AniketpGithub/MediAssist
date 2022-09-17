@@ -46,7 +46,7 @@ class PatientServiceTest{
     }
 
     @Test
-    fun `should create Appointment `(){
+    fun `should create patient `(){
 
         val patient = Patient(patientId="1", patientFirstName="Aniket", patientLastName="Pashte", userName="Akp",
             mobileNumber="8329498688", email="akp@gmail.com", gender="male", dob="08/06/2021",
@@ -59,4 +59,21 @@ class PatientServiceTest{
         addPatient shouldBe patient
 
     }
+
+
+    @Test
+    fun `should update patient info `(){
+
+        val patient = Patient(patientId="1", patientFirstName="Aniket", patientLastName="Pashte", userName="Akp",
+            mobileNumber="8329498688", email="akp@gmail.com", gender="male", dob="08/06/2021",
+            password="Akp@00", address="Mumbai")
+        every{
+            patientRepository.save(patient)
+        }returns Mono.just(patient)
+        val updatePatient = patientService.updatePatientById("1",patient).block()
+
+        updatePatient shouldBe patient
+
+    }
+
 }
