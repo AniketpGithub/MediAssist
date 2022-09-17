@@ -72,4 +72,16 @@ class BookAppointmentServiceTest{
         updatePatient shouldBe updateBooking
 
     }
+
+
+    @Test
+    fun `patient should delete booking by Id `(){
+
+        val updateBooking = BookAppointment("1","Raj","Prasad","Ratnagiri",
+            "raj@gmail.com","9985437655","17/09/2022","Chest pain")
+        every{
+            bookAppointmentRepository.deleteById("1")
+        }returns Mono.empty()
+
+    }
 }
